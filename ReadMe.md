@@ -29,7 +29,7 @@ Welcome to **ChatWithTools.ps1**, a PowerShell script designed to integrate with
 To use the script, ensure the following:
 1. **PowerShell 5.1+** is installed on your system.
 2. Access to **Ollama** or **OpenAI** endpoints:
-   - Ollama: `http://localhost:11434` (default).
+   - Ollama: `http://localhost:11434`.
    - OpenAI: `https://api.openai.com`.
 3. For OpenAI, ensure your API key is set in the `botSettings.json` file or passed as a parameter.
 
@@ -56,11 +56,6 @@ To use the script, ensure the following:
 2. Specify a different LLM provider and model:
    ```powershell
    .\ChatWithTools.ps1 -LLMProvider Ollama -OllamaModel mistral-xyz
-   ```
-
-3. Enable pirate mode:
-   ```powershell
-   .\ChatWithTools.ps1 -MorePirate
    ```
 
 ## Commands 🗂️

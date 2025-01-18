@@ -1,6 +1,6 @@
 param (
     [ValidateSet('Ollama', 'OpenAI', IgnoreCase = $true)]
-    [string]$LLMProvider = 'OpenAI',
+    [string]$LLMProvider = 'Ollama',
     [string]$OllamaModel = 'mistral-nemo',
     [string]$OllamaKeepAlive = '5m',
     [string]$OpenAIModel = 'gpt-4o-mini',
