@@ -249,7 +249,7 @@ function Get-ToolDefinitions {
         type     = 'function'
         function = @{
             name        = 'Get-CurrentWeather'
-            description = 'Fetches the current weather for a specified location. Use this for weather-related queries, including temperature, conditions, or a detailed weather report when explicitly requested.'
+            description = 'Fetches the current weather for a specified location. Use this for weather-related queries, including temperature, conditions, and wind information.'
             parameters  = @{
                 type       = 'object'
                 properties = @{
