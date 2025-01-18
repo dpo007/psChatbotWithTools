@@ -39,7 +39,7 @@ To use the script, ensure the following:
 
 | Parameter            | Description                                                                                  | Default Value        |
 |----------------------|----------------------------------------------------------------------------------------------|----------------------|
-| `-LLMProvider`       | Choose between `Ollama` and `OpenAI`.                                                       | `OpenAI`             |
+| `-LLMProvider`       | Choose between `Ollama` and `OpenAI`.                                                       | `Ollama`             |
 | `-OllamaModel`       | Model to use for Ollama.                                                                     | `mistral-nemo`       |
 | `-OllamaKeepAlive`   | Keep-alive duration for the Ollama model.                                                    | `5m`                 |
 | `-OpenAIModel`       | Model to use for OpenAI.                                                                     | `gpt-4o-mini`        |
