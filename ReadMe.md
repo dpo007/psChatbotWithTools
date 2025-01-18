@@ -1,6 +1,6 @@
 # ChatWithTools.ps1 🛠️🤖
 
-Welcome to **ChatWithTools.ps1**, a PowerShell script designed to integrate with **Ollama** and **OpenAI** large language models (LLMs) while demonstrating function call tool usage and chat context management. No modules are used, and all calls are via REST endpoints. This script provides flexibility in selecting the LLM provider and configuring its settings for various use cases. It was created to learn.
+Welcome to **ChatWithTools.ps1**, a PowerShell script designed to integrate with **Ollama** and **OpenAI** large language models (LLMs) while demonstrating function call tool usage and chat context management. No modules are used, and all calls are via REST endpoints. This script provides flexibility in selecting the LLM provider and configuring its settings for various use cases. It was created as an exercise in learning.
 
 ## Key Features 🌟
 
