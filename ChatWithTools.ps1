@@ -60,8 +60,7 @@ function Get-CurrentWeather {
     param (
         [string]$Location,
         [ValidateSet('celsius', 'fahrenheit')]
-        [string]$Unit = 'celsius',
-        [switch]$IncludeReport
+        [string]$Unit = 'celsius'
     )
 
     $paramUnit = "m"
@@ -254,18 +253,14 @@ function Get-ToolDefinitions {
             parameters  = @{
                 type       = 'object'
                 properties = @{
-                    location      = @{
+                    location = @{
                         type        = 'string'
                         description = 'The name of the location (e.g., city or region) to get the weather for.'
                     }
-                    unit          = @{
+                    unit     = @{
                         type        = 'string'
                         description = 'The unit of measurement for the weather data (celsius or fahrenheit).'
                         enum        = @('celsius', 'fahrenheit')
-                    }
-                    includeReport = @{
-                        type        = 'boolean'
-                        description = 'Whether to include a detailed weather report. Use this only if the user specifically requests a report.'
                     }
                 }
                 required   = @('location')
