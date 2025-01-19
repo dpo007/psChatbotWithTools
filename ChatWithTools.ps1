@@ -48,7 +48,6 @@ function Write-HostTimeStamped {
 Set-Alias -Name Log -Value Write-HostTimeStamped
 
 #region Tool Functions
-
 function Open-DefaultBrowser {
     <#
         .FunctionDescription
@@ -57,13 +56,27 @@ function Open-DefaultBrowser {
             The URL to open in the default web browser
     #>
     param (
-        [string]$url
+        [string]$URL
     )
 
-    # Use the "Start-Process" cmdlet to open the default browser
-    Start-Process $url
+    # Validate the URL format
+    if ($URL -notmatch '^https?://') {
+        return "Explain that the URL is invalid because it must start with 'http://' or 'https://'."
+    }
 
-    return "No problem! I'll open an external web browser to the URL: $url"
+    try {
+        # Start the process to open the URL
+        $process = Start-Process $URL -PassThru -ErrorAction Stop
+    }
+    catch {
+        return "Explain that there was an error opening the URL '$URL'. The error message is: $_"
+    }
+
+    # Capitalize the first letter of the process name
+    $processName = $process.Name.Substring(0, 1).ToUpper() + $process.Name.Substring(1).ToLower()
+
+    # Return a descriptive string
+    return "Explain that the URL '$URL' has been successfully opened in the '$processName' browser."
 }
 
 function Get-CurrentWeather {
@@ -376,7 +389,7 @@ function Get-ChatResponse {
     # LLM API chat endpoint
     $uri = ('{0}/v1/chat/completions' -f $script:LLMSettings.ApiEndpointURL)
 
-    $systemPrompt = 'You are a cheerful, helpful assistant.  Try to provide useful answers and information, with no guessing. If you don''t know something, just say so.'
+    $systemPrompt = 'You are a cheerful, helpful assistant. Try to provide useful answers and information, with no guessing. If you don''t know something, just say so. You like to use emojis in your replies, and never use markdown.'
 
     if (!($NoTools)) {
         $systemPrompt += ' Always prioritize using function tool calls to assist with answers when applicable to the user''s query. If a function tool call can be utilized for accuracy, up-to-date information, or specific computations, use it instead of relying on general knowledge or pre-trained responses.'
@@ -448,6 +461,7 @@ function Get-ChatResponse {
     # Initialize retry counter
     $attempt = 0
     $success = $false
+    $result = $null
 
     while ($attempt -lt $RetryCount -and -not $success) {
         # Invoke chat call to LLM
@@ -499,15 +513,17 @@ function Get-ChatResponse {
 
         # Generate an LLM response for the tool call (via recursion)
         if ($Prompt) {
-            return Get-ChatResponse -Prompt $Prompt -ExtraInfo $functionResults -NoTools
+            $result = Get-ChatResponse -Prompt $Prompt -ExtraInfo $functionResults -NoTools
         }
         else {
-            return Get-ChatResponse -History $History -ExtraInfo $functionResults -NoTools
+            $result = Get-ChatResponse -History $History -ExtraInfo $functionResults -NoTools
         }
     }
     else {
-        return $response.choices[0].message.content
+        $result = $response.choices[0].message.content
     }
+
+    return $result
 }
 #endregion Function Definitions
 
