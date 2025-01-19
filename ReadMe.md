@@ -15,7 +15,7 @@ Welcome to **ChatWithTools.ps1**, a PowerShell script designed to integrate with
 
 ### 🛠️ Built-In Tools
 - Includes functions to retrieve:
-- **Current Weather** for a location. 🌤️
+  - **Current Weather** for a location. 🌤️
   - **Open Browser** to a provided website. 🌐
   - **Random Cat Facts** 🐱.
   - **Random Dog Facts** 🐶.
