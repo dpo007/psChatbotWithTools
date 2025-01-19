@@ -230,7 +230,7 @@ function Get-CurrentTime {
     $timeString = (Get-Date).ToString('h:mmtt')
     $timeZone = $timeZone.DisplayName
     $timeString += (' {0}' -f $timeZone)
-    return ('The current time is {0}.' -f $timeString)
+    return ('The current system time is {0}.' -f $timeString)
 }
 #endregion Tool Functions
 function Set-DefaultSettingsFile {
