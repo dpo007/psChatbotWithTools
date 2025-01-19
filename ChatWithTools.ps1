@@ -499,6 +499,7 @@ function Get-ChatResponse {
             # Convert to a hashtable for splatting
             $splatParam = @{}
 
+            # Populate the hashtable with the data from the JSON object
             $argumentsObject.PsObject.Properties | ForEach-Object {
                 $splatParam[$_.Name] = $_.Value
             }
@@ -506,6 +507,7 @@ function Get-ChatResponse {
             # Call the function and get the result
             Log ('Calling tool function: {0}' -f $functionName) -ForegroundColor DarkGray
             try {
+                # Use & to call the function by name, with the splatted parameters.
                 $functionResults += "`n" + (& $functionName @splatParam)
             }
             catch {
