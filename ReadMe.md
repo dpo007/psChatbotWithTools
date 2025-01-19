@@ -1,6 +1,6 @@
 # ChatWithTools.ps1 🛠️🤖
 
-Welcome to **ChatWithTools.ps1**, a PowerShell script designed to integrate with **Ollama** and **OpenAI** large language models (LLMs) to demonstrating function call tool usage and chat context management. *No modules are used*, and all calls are via REST endpoints. This script provides flexibility in selecting the LLM provider and configuring its settings for various use cases. It was created as an exercise in learning.
+Welcome to **ChatWithTools.ps1**, a PowerShell script designed to integrate with **Ollama** and **OpenAI** large language models (LLMs) to demonstrating function call tool usage and chat context management. ***No modules are used***, and all calls are via REST endpoints. This script provides flexibility in selecting the LLM provider and configuring its settings for various use cases. It was created as an exercise in learning, hopefully it will help others. 😊
 
 ## Key Features 🌟
 
@@ -15,12 +15,12 @@ Welcome to **ChatWithTools.ps1**, a PowerShell script designed to integrate with
 
 ### 🛠️ Built-In Tools
 - Includes functions to retrieve:
-  - **Current Weather** for a location.
-  - **Open Browser** to a provided website.
+- **Current Weather** for a location. 🌤️
+  - **Open Browser** to a provided website. 🌐
   - **Random Cat Facts** 🐱.
   - **Random Dog Facts** 🐶.
   - **Dad Jokes** 😂.
-  - **Current System Date and Time**.
+  - **Current System Date and Time**. 🕒
 
 ### 🎭 Customization
 - Fully configurable LLM settings such as models, API endpoints, and keep-alive durations.
