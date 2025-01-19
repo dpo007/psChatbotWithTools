@@ -48,6 +48,24 @@ function Write-HostTimeStamped {
 Set-Alias -Name Log -Value Write-HostTimeStamped
 
 #region Tool Functions
+
+function Open-DefaultBrowser {
+    <#
+        .FunctionDescription
+            Opens the default web browser with the specified URL
+        .ParameterDescription url
+            The URL to open in the default web browser
+    #>
+    param (
+        [string]$url
+    )
+
+    # Use the "Start-Process" cmdlet to open the default browser
+    Start-Process $url
+
+    return "No problem! I'll open an external web browser to the URL: $url"
+}
+
 function Get-CurrentWeather {
     <#
         .FunctionDescription
@@ -310,6 +328,25 @@ function Get-ToolDefinitions {
         function = @{
             name        = 'Get-CurrentDate'
             description = 'Provides today''s date in the system''s timezone. Use this for date-related queries or when the current date is needed.'
+        }
+    }
+
+    # Add the Open Default Browser tool entry
+    $tools += @{
+        type     = 'function'
+        function = @{
+            name        = 'Open-DefaultBrowser'
+            description = 'Opens the default web browser with the specified URL. Use this to open web pages or URLs.'
+            parameters  = @{
+                type       = 'object'
+                properties = @{
+                    url = @{
+                        type        = 'string'
+                        description = 'The URL to open in the default web browser.'
+                    }
+                }
+                required   = @('url')
+            }
         }
     }
 
