@@ -223,10 +223,13 @@ function Get-CurrentDate {
 function Get-CurrentTime {
     <#
         .FunctionDescription
-            Returns the current time as a string.
+            Returns the current time as a string (including the timezone).
     #>
 
-    $timeString = (Get-Date).ToString('h:mm tt')
+    $timeZone = [System.TimeZoneInfo]::Local
+    $timeString = (Get-Date).ToString('h:mmtt')
+    $timeZone = $timeZone.DisplayName
+    $timeString += (' {0}' -f $timeZone)
     return ('The current time is {0}.' -f $timeString)
 }
 #endregion Tool Functions
