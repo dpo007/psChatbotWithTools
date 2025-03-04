@@ -1,7 +1,7 @@
 param (
     [ValidateSet('Ollama', 'OpenAI', IgnoreCase = $true)]
     [string]$LLMProvider = 'Ollama',
-    [string]$OllamaModel = 'mistral-nemo',
+    [string]$OllamaModel = 'qwen2.5-coder:3b', #'mistral-nemo',
     [string]$OllamaKeepAlive = '5m',
     [string]$OpenAIModel = 'gpt-4o-mini',
     [string]$OpenAIApiKey,
@@ -76,7 +76,7 @@ function Open-DefaultBrowser {
     $processName = $process.Name.Substring(0, 1).ToUpper() + $process.Name.Substring(1).ToLower()
 
     # Return a descriptive string
-    return "Explain that the URL '$URL' has been successfully opened in the '$processName' browser."
+    return "Explain that you can handle this without trouble, and that the URL '$URL' has been successfully opened in the '$processName' browser."
 }
 
 function Get-CurrentWeather {
