@@ -1,7 +1,7 @@
 param (
     [ValidateSet('Ollama', 'OpenAI', IgnoreCase = $true)]
     [string]$LLMProvider = 'Ollama',
-    [string]$OllamaModel = 'qwen2.5-coder:3b', #'mistral-nemo',
+    [string]$OllamaModel = 'mistral-nemo',
     [string]$OllamaKeepAlive = '5m',
     [string]$OpenAIModel = 'gpt-4o-mini',
     [string]$OpenAIApiKey,
@@ -535,6 +535,9 @@ function Get-ChatResponse {
 #################
 # Main Entry Point
 ###################
+
+# Set default error action preference to stop
+$ErrorActionPreference = 'Stop'
 
 # Create default settings file (if it doesn't exist)
 Set-DefaultSettingsFile -FilePath $SettingsFilePath
